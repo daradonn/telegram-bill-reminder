@@ -1,0 +1,12 @@
+services:
+  bill-reminder:
+    build:
+      context: .
+      dockerfile: Containerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATA_DIR: /data
+    volumes:
+      - ./data:/data
